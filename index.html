@@ -546,12 +546,19 @@
       ['homePage', 'loadingPage', 'playerPage'].forEach(id => {
         const el = document.getElementById(id);
         if (id === pageId) {
-          el.classList.add(id === 'homePage' ? '' : 'visible');
-          if (id !== 'homePage') el.style.display = 'flex';
+          if (id !== 'homePage') {
+            el.classList.add('visible');
+            el.style.display = 'flex';
+          } else {
+            el.style.display = '';
+          }
         } else {
-          el.classList.remove(id === 'homePage' ? '' : 'visible');
-          if (id !== 'homePage') el.style.display = 'none';
-          if (id === 'homePage') el.style.display = '';
+          if (id !== 'homePage') {
+            el.classList.remove('visible');
+            el.style.display = 'none';
+          } else {
+            el.style.display = 'none';
+          }
         }
       });
     }
